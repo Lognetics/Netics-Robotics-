@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+/* ============================================================
+   NETICS ROBOTICS — Design System
+   ============================================================ */
+
+:root {
+  --background: #050505;
+  --background-2: #08090d;
+  --foreground: #e8edf5;
+  --muted: #8b95a7;
+
+  --electric: #2f6bff; /* electric blue */
+  --cyan: #19e3ff; /* neon cyan */
+  --violet: #7c5cff;
+  --silver: #c7cedb;
+
+  --glass: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glow-cyan: rgba(25, 227, 255, 0.55);
+  --glow-blue: rgba(47, 107, 255, 0.55);
+
+  --nav-h: 72px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-2: var(--background-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-electric: var(--electric);
+  --color-cyan: var(--cyan);
+  --color-violet: var(--violet);
+  --color-silver: var(--silver);
+
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+
+  --radius-xl2: 1.5rem;
+}
+
+* {
+  border-color: var(--glass-border);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--cyan);
+  color: #001016;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0b0f;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--electric), var(--cyan));
+  border-radius: 8px;
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+@layer utilities {
+  .glass {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .glass-strong {
+    background: rgba(10, 12, 18, 0.65);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 28px var(--glow-cyan);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 0 1px rgba(25, 227, 255, 0.25),
+      0 0 40px -8px var(--glow-cyan);
+  }
+  .glow-blue {
+    box-shadow: 0 0 0 1px rgba(47, 107, 255, 0.25),
+      0 0 40px -8px var(--glow-blue);
+  }
+
+  .gradient-text {
+    background: linear-gradient(100deg, #ffffff 0%, var(--cyan) 45%, var(--electric) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-text-soft {
+    background: linear-gradient(100deg, var(--silver), var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  .bg-radial-glow {
+    background: radial-gradient(
+      60% 50% at 50% 0%,
+      rgba(47, 107, 255, 0.16) 0%,
+      rgba(25, 227, 255, 0.06) 35%,
+      transparent 70%
+    );
+  }
+
+  .bg-aurora {
+    background:
+      radial-gradient(40% 60% at 15% 20%, rgba(47, 107, 255, 0.18), transparent 60%),
+      radial-gradient(40% 50% at 85% 30%, rgba(25, 227, 255, 0.14), transparent 60%),
+      radial-gradient(50% 60% at 50% 100%, rgba(124, 92, 255, 0.12), transparent 60%);
+  }
+
+  .border-glow {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--background-2), var(--background-2)) padding-box,
+      linear-gradient(120deg, rgba(47, 107, 255, 0.6), rgba(25, 227, 255, 0.5)) border-box;
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  .perspective {
+    perspective: 1200px;
+  }
+}
+
+/* ============================================================
+   Keyframe animations
+   ============================================================ */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes grid-pan {
+  0% { background-position: 0 0; }
+  100% { background-position: 56px 56px; }
+}
+
+.animate-floaty { animation: floaty 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 26s linear infinite; }
+.animate-grid { animation: grid-pan 8s linear infinite; }
+.animate-marquee { animation: marquee 40s linear infinite; }
+
+.shimmer {
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3.5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
