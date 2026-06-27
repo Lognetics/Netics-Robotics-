@@ -4,7 +4,7 @@ import Reveal from "@/components/ui/Reveal";
 import GlassCard from "@/components/ui/GlassCard";
 import GlowButton from "@/components/ui/GlowButton";
 import CTAStrip from "@/components/ui/CTAStrip";
-import RobotViewer from "@/components/three/RobotViewer";
+import Image from "next/image";
 import { robots } from "@/lib/data";
 
 export const metadata = {
@@ -111,7 +111,10 @@ export default function HumanoidPage() {
             <div className="absolute inset-0 bg-aurora opacity-50" />
             <div className="absolute inset-0 bg-grid opacity-20" />
             <div className="relative grid items-center gap-6 p-6 sm:p-10 lg:grid-cols-[1.1fr_0.9fr]">
-              <RobotViewer accent="#19e3ff" className="h-[560px]" />
+              <div className="relative h-[420px] w-full overflow-hidden rounded-2xl border border-white/10 sm:h-[560px]">
+                <Image src="/robots/atlas-hero.jpg" alt="NETICS Atlas One humanoid robot" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 55vw" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              </div>
               <div className="flex flex-col gap-5">
                 <span className="inline-flex w-fit items-center gap-2 rounded-full glass px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-cyan">
                   <span className="h-1.5 w-1.5 rounded-full bg-cyan animate-pulse-glow" />

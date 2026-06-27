@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { nav } from "@/lib/site";
 import Logo from "./Logo";
 import GlowButton from "@/components/ui/GlowButton";
+import CartButton from "@/components/cart/CartButton";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -76,17 +77,17 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link href="/contact" className="text-sm text-silver transition-colors hover:text-white">
-            Book a Demo
-          </Link>
-          <GlowButton href="/marketplace" className="px-5 py-2.5">
-            Explore Robots
+          <CartButton />
+          <GlowButton href="/robots" className="px-5 py-2.5">
+            Shop Robots
           </GlowButton>
         </div>
 
         {/* Mobile toggle */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <CartButton />
         <button
-          className="grid h-10 w-10 place-items-center rounded-xl glass lg:hidden"
+          className="grid h-10 w-10 place-items-center rounded-xl glass"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -96,6 +97,7 @@ export default function Navbar() {
             <span className={`block h-0.5 w-5 bg-white transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`} />
           </div>
         </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -134,7 +136,7 @@ export default function Navbar() {
                 </div>
               ))}
               <div className="mt-4 flex flex-col gap-3">
-                <GlowButton href="/marketplace" className="w-full">Explore Robots</GlowButton>
+                <GlowButton href="/robots" className="w-full">Shop Robots</GlowButton>
                 <GlowButton href="/contact" variant="outline" className="w-full">Book a Demo</GlowButton>
               </div>
             </div>

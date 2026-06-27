@@ -5,7 +5,7 @@ import { Section, Eyebrow } from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import GlowButton from "@/components/ui/GlowButton";
 import GlassCard from "@/components/ui/GlassCard";
-import RobotViewer from "@/components/three/RobotViewer";
+import Image from "next/image";
 import { industries } from "@/lib/data";
 
 /* ---------- Option model ---------- */
@@ -358,8 +358,14 @@ export default function BuildPage() {
           {/* ---------- Live summary (sticky) ---------- */}
           <div className="lg:sticky lg:top-28 lg:h-fit">
             <GlassCard hover={false} className="overflow-hidden p-0">
-              <div className="relative">
-                <RobotViewer accent={accent} className="h-[300px]" />
+              <div className="relative h-[300px]">
+                <Image
+                  src={accent === "#19e3ff" ? "/robots/atlas-hero.jpg" : accent === "#2f6bff" ? "/robots/humanoid-black.jpg" : "/robots/pepper.jpg"}
+                  alt="Configured NETICS robot preview"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background-2 to-transparent" />
               </div>
               <div className="p-6">

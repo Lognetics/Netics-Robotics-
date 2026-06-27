@@ -5,6 +5,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import AIAssistant from "@/components/layout/AIAssistant";
 import ScrollProgress from "@/components/layout/ScrollProgress";
+import { CartProvider } from "@/components/cart/CartContext";
+import CartDrawer from "@/components/cart/CartDrawer";
 import { site } from "@/lib/site";
 
 const display = Space_Grotesk({
@@ -49,11 +51,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${mono.variable} h-full antialiased`}>
       <body className="min-h-full bg-background text-foreground">
-        <ScrollProgress />
-        <Navbar />
-        <main className="flex flex-col">{children}</main>
-        <Footer />
-        <AIAssistant />
+        <CartProvider>
+          <ScrollProgress />
+          <Navbar />
+          <main className="flex flex-col">{children}</main>
+          <Footer />
+          <AIAssistant />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

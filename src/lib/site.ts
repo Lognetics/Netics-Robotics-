@@ -16,86 +16,63 @@ export type NavItem = { label: string; href: string; children?: NavChild[] };
 
 export const nav: NavItem[] = [
   {
-    label: "Robots",
+    label: "Shop",
     href: "/robots",
     children: [
-      { label: "All Robots", href: "/robots", desc: "Browse the full lineup" },
-      { label: "Humanoid", href: "/humanoid", desc: "NETICS humanoid platform" },
-      { label: "Marketplace", href: "/marketplace", desc: "Shop like an Apple Store" },
-      { label: "Build Your Robot", href: "/build", desc: "Configure & get a quote" },
+      { label: "All Robots", href: "/robots", desc: "Browse the full store" },
+      { label: "Humanoid", href: "/robots?category=Humanoid", desc: "General-purpose humanoids" },
+      { label: "Service", href: "/robots?category=Service", desc: "Reception & concierge" },
+      { label: "Industrial", href: "/robots?category=Industrial", desc: "Arms & manipulators" },
+      { label: "Security", href: "/robots?category=Security", desc: "Patrol & detection" },
+      { label: "Drones", href: "/robots?category=Aerial", desc: "Survey & overwatch" },
+      { label: "Home & Companion", href: "/robots?category=Home", desc: "For everyday life" },
+      { label: "Education", href: "/robots?category=Education", desc: "Learn & build" },
     ],
   },
-  {
-    label: "Solutions",
-    href: "/industries",
-    children: [
-      { label: "Industries", href: "/industries", desc: "22 sectors we serve" },
-      { label: "Enterprise", href: "/enterprise", desc: "Gov, military, large orgs" },
-      { label: "Case Studies", href: "/case-studies", desc: "Real deployments & ROI" },
-      { label: "Live Dashboard", href: "/dashboard", desc: "Fleet intelligence" },
-    ],
-  },
-  {
-    label: "Platform",
-    href: "/software",
-    children: [
-      { label: "NETICS OS", href: "/software", desc: "Robotics operating system" },
-      { label: "Ecosystem", href: "/ecosystem", desc: "AI · Cloud · Vision · Voice" },
-      { label: "Research & Dev", href: "/research", desc: "Inside the labs" },
-      { label: "The Future", href: "/future", desc: "Roadmap to 2055" },
-    ],
-  },
-  {
-    label: "Company",
-    href: "/about",
-    children: [
-      { label: "Distributors", href: "/distributors", desc: "Become a partner" },
-      { label: "Investors", href: "/investors", desc: "Growth & vision" },
-      { label: "Careers", href: "/careers", desc: "Build the future" },
-      { label: "Support", href: "/support", desc: "Docs, training, help" },
-      { label: "Blog", href: "/blog", desc: "AI & robotics insights" },
-      { label: "Contact", href: "/contact", desc: "Talk to us" },
-    ],
-  },
+  { label: "Humanoid", href: "/humanoid" },
+  { label: "Business", href: "/industries" },
+  { label: "Support", href: "/support" },
+  { label: "About", href: "/about" },
 ];
 
 export const footerCols: { title: string; links: NavChild[] }[] = [
   {
-    title: "Robots",
+    title: "Shop",
     links: [
       { label: "All Robots", href: "/robots" },
-      { label: "Humanoid", href: "/humanoid" },
-      { label: "Marketplace", href: "/marketplace" },
-      { label: "Build Your Robot", href: "/build" },
+      { label: "Humanoid", href: "/robots?category=Humanoid" },
+      { label: "Industrial", href: "/robots?category=Industrial" },
+      { label: "Drones", href: "/robots?category=Aerial" },
+      { label: "Home & Companion", href: "/robots?category=Home" },
     ],
   },
   {
-    title: "Solutions",
+    title: "Business",
     links: [
       { label: "Industries", href: "/industries" },
       { label: "Enterprise", href: "/enterprise" },
       { label: "Case Studies", href: "/case-studies" },
-      { label: "Live Dashboard", href: "/dashboard" },
+      { label: "Become a Distributor", href: "/distributors" },
+      { label: "Build Your Robot", href: "/build" },
     ],
   },
   {
-    title: "Platform",
+    title: "Support",
     links: [
-      { label: "NETICS OS", href: "/software" },
-      { label: "Ecosystem", href: "/ecosystem" },
-      { label: "Research & Dev", href: "/research" },
-      { label: "The Future", href: "/future" },
+      { label: "Help Center", href: "/support" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "Track Order", href: "/support" },
+      { label: "Warranty", href: "/support" },
+      { label: "Financing", href: "/support" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "Distributors", href: "/distributors" },
-      { label: "Investors", href: "/investors" },
+      { label: "About", href: "/about" },
       { label: "Careers", href: "/careers" },
-      { label: "Support", href: "/support" },
+      { label: "Investors", href: "/investors" },
       { label: "Blog", href: "/blog" },
-      { label: "Contact", href: "/contact" },
     ],
   },
 ];
